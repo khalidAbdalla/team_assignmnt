@@ -13,7 +13,7 @@ private:
 
 public:
     FriendStack() {
-        top = -1;  // Bilowga stack oo faaruq ah
+        top = -1;  // start of empty stack
     }
 
     // Ku darida magaca saaxiibka stack-ga (Push)
