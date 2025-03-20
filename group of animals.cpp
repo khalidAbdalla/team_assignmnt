@@ -1,45 +1,50 @@
-
 #include <iostream>
-#include <vector>
+
 using namespace std;
 
-int main() {
+int main()
+{
+     // Accept a group of domestic and wild animals
     int N, X;
 
-    // here we insert  the number of domestic and wild animals
-    cout << "Enter the number of domestic animals (N): ";
+    cout << "Enter the number of domestic animals: ";
     cin >> N;
-    cout << "Enter the number of wild animals (X): ";
-    cin >> X;
+    string domesticAnimals[N];
 
-    // the Vectors to store the names of domestic and wild animals ,
-    // is like a flexible and smart container that will hold the domesticAnimals and wildAnimals for us,
-    // It grows or shrinks automatically as you add or remove words, 
-    vector<string> domesticAnimals(N);
-    vector<string> wildAnimals(X);
 
-    // let's now enter the  domestic animals
-    cout << "\nEnter the names of " << N << " domestic animals:\n";
-    for (int i = 0; i < N; ++i) {
-        cout << "  Domestic animal " << i + 1 << ": ";
+    for (int i = 0; i < N; i++) {
+        cout << "Domestic animal " << (i + 1) << ": ";
         cin >> domesticAnimals[i];
     }
 
-    // the the  wild animals
-    cout << "\nEnter the names of " << X << " wild animals:\n";
-    for (int i = 0; i < X; ++i) {
-        cout << "  Wild animal " << i + 1 << ": ";
+    cout << "\nDomestic animals entered:\n";
+    for (int i = 0; i < N; i++) {
+        cout << domesticAnimals[i] << endl;
+    }
+
+    cout << "\nEnter the number of wild animals: ";
+    cin >> X;
+    string wildAnimals[X];
+
+
+    for (int i = 0; i < X; i++) {
+        cout << "Wild animal " << (i + 1) << ": ";
         cin >> wildAnimals[i];
     }
 
-    // we now print  all animals (domestic + wild)
-    cout << "\nAll " << N + X << " animals:\n";
-    for (int i = 0; i < N; ++i) {
-        cout << "  Domestic animal " << i + 1 << ": " << domesticAnimals[i] << endl;
+    cout << "\nWild animals entered:\n";
+    for (int i = 0; i < X; i++) {
+        cout << wildAnimals[i] << endl;
     }
-    for (int i = 0; i < X; ++i) {
-        cout << "  Wild animal " << i + 1 << ": " << wildAnimals[i] << endl;
+
+    cout << "\nAll animals entered (Domestic + Wild):\n";
+    for (int i = 0; i < N; i++) {
+        cout << domesticAnimals[i] << endl;
+    }
+    for (int i = 0; i < X; i++) {
+        cout << wildAnimals[i] << endl;
     }
 
     return 0;
 }
+
