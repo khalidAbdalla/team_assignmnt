@@ -4,6 +4,9 @@ using namespace std;
 
 int main()
 {
+/*
+-- this program is about a user entering both domestic and wild animals differently and merging them together in a new array
+*/
      // Accept a group of domestic and wild animals
     int N, X;
 
@@ -17,10 +20,6 @@ int main()
         cin >> domesticAnimals[i];
     }
 
-    cout << "\nDomestic animals entered:\n";
-    for (int i = 0; i < N; i++) {
-        cout << domesticAnimals[i] << endl;
-    }
 
     cout << "\nEnter the number of wild animals: ";
     cin >> X;
@@ -32,11 +31,22 @@ int main()
         cin >> wildAnimals[i];
     }
 
-    cout << "\nWild animals entered:\n";
-    for (int i = 0; i < X; i++) {
-        cout << wildAnimals[i] << endl;
-    }
+/*
+creating a merged array for both our wild and domestic animals
+*/
+    int totalSize= N+X;
+    string AllAnimals[totalSize];
 
+    // for copying domestic animals into our merged array
+  for (int i=0; i<N; i++)
+    {
+    AllAnimals[i]=domesticAnimals[i];
+}
+// for copying wild animals into our merged array
+  for (int i=0; i<X; i++)
+    {
+    AllAnimals[N+i]=wildAnimals[i];
+}
     cout << "\nAll animals entered (Domestic + Wild):\n";
     for (int i = 0; i < N; i++) {
         cout << domesticAnimals[i] << endl;
