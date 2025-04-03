@@ -67,8 +67,8 @@ int main() {
             case 1:
                cout << "Enter friend's name to push: ";
     cin >> data;
-    if (data.find_first_of("0123456789") != string::npos) {
-        cout << "Names shouldn't contain numbers!\n";
+    if (data.find_first_of("0123456789><.!£$,") != string::npos) {
+        cout << "Names shouldn't contain numbers and signs!\n";
     } else {
         stack.push(data);
     }
