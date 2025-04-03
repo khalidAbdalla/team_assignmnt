@@ -14,11 +14,11 @@ public:
     // Push a friend's name onto the stack
     void push(string friendName) {
         if (top == MAX - 1) {
-            cout << "Stack is full! Cannot add a new friend." << endl;
+                cout << "Cannot add a new friend." << endl;
         } else {
             top += 1;
             friends[top] = friendName;
-            cout << friendName << " has been successfully added to the stack!" << endl;
+            cout << friendName << " successfully added " << endl;
         }
     }
 
@@ -42,13 +42,22 @@ public:
         }
         cout << "\nFriends in the stack (from top to bottom):" << endl;
         for (int i = top; i >= 0; i--) {
-            cout << i + 1 << ". " << friends[i] << endl;  // Fixed array name
+            cout << i + 1 << ". " << friends[i] << endl;
         }
+    }
+
+    string peek(){
+    if (top==-1){
+        cout<<"stack is empty!!";
+        return "stack is empty ";
+    }
+    cout << "Top most friend in the stack : " << friends[top] << endl;
+        return friends[top];
     }
 };
 
 int main() {
-    FriendStack stack;  // Created an instance of FriendStack
+    FriendStack stack;  // an instance of FriendStack
     int choice;
     string data;  // Changed to string since we're dealing with names
 
@@ -58,17 +67,18 @@ int main() {
         cout<<"....................................\n ";
         cout << "1: push" << endl;
         cout << "2: pop" << endl;
-        cout << "3: display" << endl;
-        cout << "4: exit" << endl;
-        cout << "Please enter your choice: \n";
+        cout << "3: peek" << endl;
+        cout << "4: display" << endl;
+        cout << "5: exit" << endl;
+        cout << "Please enter your choice: ";
         cin >> choice;
 
         switch (choice) {
             case 1:
                cout << "Enter friend's name to push: ";
-    cin >> data;
+               cin >> data;
     if (data.find_first_of("0123456789><.!£$,") != string::npos) {
-        cout << "Names shouldn't contain numbers and signs!\n";
+        cout << "Error !!!! ....Names should not contain numbers and signs....\n";
     } else {
         stack.push(data);
     }
@@ -80,9 +90,12 @@ int main() {
                 }
                 break;
             case 3:
-                stack.displayStack();
+                stack.peek();
                 break;
             case 4:
+                stack.displayStack();
+                break;
+            case 5:
                 cout << "Exiting program..." << endl;
                 return 0;
             default:
